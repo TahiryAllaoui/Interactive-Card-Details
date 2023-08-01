@@ -9,10 +9,7 @@ const Background = () => {
             <div className="bg-card-front">
                 <img src={cardLogo} alt="" />
                 <div className="digit">
-                    <p className="first-digit">9531</p>
-                    <p className="second-digit">6458</p>
-                    <p className="third-digit">5687</p>
-                    <p className="fourth-digit">2567E</p>
+                    <p className="show-digit">9531 5465 3215 258E</p>
                 </div>
                 <div className="card-foot">
                     <p className="user-name">Kali kwel</p>
