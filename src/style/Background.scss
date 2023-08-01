@@ -6,17 +6,15 @@
 
     .bg-card-front {
         background: url('../assets/images/bg-card-front.png') no-repeat;
-        height: 245px;
-        width: 447px;
-        transform: translate(35%, 90%);
+        background-size: contain;
+        width: 65%;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-around;
-        padding-left: 2rem;
+        padding: 10px 0 0 15px;
+        transform: translate(40%, 90%);
 
         img {
-            width: 100px;
+            width: 20%;
         }
 
         .digit {
@@ -26,24 +24,24 @@
             width: 100%;
 
             p {
-                font-size: x-large;
                 color: white;
             }
         }
 
         .card-foot {
             display: flex;
-            width: 85%;
+            width: 75%;
             justify-content: space-between;
 
             p {
-                font-size: large;
+                font-size: small;
                 color: white;
             }
         }
     }
 
     .bg-card-back {
-        transform: translate(55%, 105%);
+        width: 65%;
+        transform: translate(55%, 110%);
     }
 }
