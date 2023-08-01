@@ -1,10 +1,11 @@
 import '../style/App.scss'
-// import logo from '../images/card-logo.svg'
+import Background from './Background'
+
 function App() {
 
   return (
     <div className='app'>
-
+      <Background />
     </div>
   )
 }

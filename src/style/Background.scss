@@ -1,0 +1,49 @@
+.bg {
+    border-radius: 1rem 0 0 1rem;
+    width: 50%;
+    background: url('../assets/images/bg-main-desktop.png') no-repeat;
+    background-size: contain;
+
+    .bg-card-front {
+        background: url('../assets/images/bg-card-front.png') no-repeat;
+        height: 245px;
+        width: 447px;
+        transform: translate(35%, 90%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        padding-left: 2rem;
+
+        img {
+            width: 100px;
+        }
+
+        .digit {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            width: 100%;
+
+            p {
+                font-size: x-large;
+                color: white;
+            }
+        }
+
+        .card-foot {
+            display: flex;
+            width: 85%;
+            justify-content: space-between;
+
+            p {
+                font-size: large;
+                color: white;
+            }
+        }
+    }
+
+    .bg-card-back {
+        transform: translate(55%, 105%);
+    }
+}
