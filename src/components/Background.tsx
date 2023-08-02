@@ -1,4 +1,3 @@
-import bgCardBack from '../assets/images/bg-card-back.png'
 import cardLogo from '../assets/images/card-logo.svg'
 import Card from '../models/card';
 import '../style/Background.scss'
@@ -18,7 +17,9 @@ const Background = ({ card }: { card: Card }) => {
                     <p className="expire-date">{card.month}/{card.year}</p>
                 </div>
             </div>
-            <img src={bgCardBack} alt="" className='bg-card-back' />
+            <div className="bg-card-back">
+                <p className="card-cvc">{card.cvc}</p>
+            </div>
         </div>
     </div>
 };

@@ -41,7 +41,17 @@
     }
 
     .bg-card-back {
-        width: 55%;
-        transform: translate(60%, 110%);
+        background: url('../assets/images/bg-card-back.png') no-repeat;
+        background-size: contain;
+        width: 16rem;
+        height: 8.7rem;
+        transform: translate(70%, 110%);
+        color: white;
+        display: flex;
+        justify-content: flex-end;
+
+        .card-cvc {
+            padding-right: 1rem;
+        }
     }
 }

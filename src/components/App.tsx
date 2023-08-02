@@ -6,8 +6,8 @@ import Card from '../models/card';
 
 function App() {
   const [card, setCard] = useState<Card>({
-    name: "John Wick",
-    cardNumber: '1542 8845 1568 1235',
+    name: "John Lavine",
+    cardNumber: '1234 5678 9123 4567',
     month: '12',
     year: '26',
     cvc: '123'
