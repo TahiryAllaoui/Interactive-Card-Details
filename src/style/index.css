@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Hanken';
-  src: url('../assets/fonts/HankenGrotesk-VariableFont_wght.ttf');
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Regular.ttf');
 }
 
 
@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: 'Hanken';
+  font-family: 'Space Grotesk';
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -30,5 +30,5 @@ body {
 }
 
 * {
-  font-family: 'Hanken';
+  font-family: 'Space Grotesk';
 }

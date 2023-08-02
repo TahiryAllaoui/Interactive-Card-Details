@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../models/card';
 import '../style/Form.scss'
 
@@ -14,6 +14,8 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
     let errorCvc = document.querySelector('.cvc-error');
     let errorCvcInput = document.querySelector('#cvc');
 
+    //Button submit disponibility
+    const [submitValidity, setSubmitValidity] = useState(true);
 
     //Setting up special char
     const specialChar: RegExp = /[1234567890!@#$%^&*()=<>/?:;{}[+\]]/;
@@ -101,7 +103,7 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
                     <p className="cvc-error">Number only. Can't be blank</p>
                 </div>
             </div>
-            <button type='submit' >Confirm</button>
+            <button type='submit' disabled={submitValidity}>Confirm</button>
         </div>
 
     </form>

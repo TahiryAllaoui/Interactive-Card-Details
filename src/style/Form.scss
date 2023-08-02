@@ -216,6 +216,12 @@ form {
             font-size: large;
             transition: background-color 100ms linear;
 
+            &:disabled {
+                color: rgba(32, 32, 32, 0.241);
+                border: 2px grey solid;
+                background-color: rgb(255, 255, 255);
+            }
+
             &:hover {
                 background-color: rgb(106, 5, 116);
             }
