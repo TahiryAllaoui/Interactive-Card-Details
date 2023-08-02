@@ -1,3 +1,49 @@
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-5px);
+    }
+
+    20% {
+        transform: translateX(5px);
+    }
+
+    30% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    60% {
+        transform: translateX(5px);
+    }
+
+    70% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    90% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 form {
     display: flex;
     width: 50%;
@@ -9,7 +55,7 @@ form {
         width: 60%;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
 
         label {
             font-size: small;
@@ -27,6 +73,23 @@ form {
                 height: 2rem;
                 font-size: medium;
             }
+
+            .input-error {
+                border: 1px solid red;
+                animation: shake 400ms;
+            }
+
+            .error-name {
+                margin: 0;
+                padding: 0;
+                color: red;
+                font-size: x-small;
+                display: none;
+            }
+
+            .error-name-active {
+                display: block;
+            }
         }
 
         .number {
@@ -40,6 +103,25 @@ form {
                 padding-left: 5px;
                 height: 2rem;
                 font-size: medium;
+                text-overflow: clip;
+                word-wrap: normal;
+            }
+
+            .input-error {
+                border: 1px solid red;
+                animation: shake 400ms;
+            }
+
+            .error-number {
+                margin: 0;
+                padding: 0;
+                color: red;
+                font-size: x-small;
+                display: none;
+            }
+
+            .error-number-active {
+                display: block;
             }
         }
 
@@ -66,7 +148,25 @@ form {
                         height: 2rem;
                         width: 100%;
                         font-size: medium;
+
                     }
+
+                    .input-error {
+                        border: 1px solid red;
+                        animation: shake 400ms;
+                    }
+                }
+
+                .date-error {
+                    margin: 0;
+                    padding: 0;
+                    color: red;
+                    font-size: x-small;
+                    display: none;
+                }
+
+                .date-error-active {
+                    display: block;
                 }
 
             }
@@ -84,6 +184,25 @@ form {
                     height: 2rem;
                     font-size: medium;
                 }
+
+                .input-error {
+                    border: 1px solid red;
+                    animation: shake 400ms;
+                }
+
+                .cvc-error {
+                    margin: 0;
+                    padding: 0;
+                    color: red;
+                    font-size: x-small;
+                    display: none;
+
+                }
+
+                .cvc-active {
+                    display: block;
+                }
+
 
             }
         }
