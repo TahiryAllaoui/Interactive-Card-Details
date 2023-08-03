@@ -11,7 +11,7 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
     }, [])
 
     //Setting up special char
-    const specialChar: RegExp = /[1234567890!@#$%^&*()=<>|\\/?:;{}[+\]]/;
+    const specialChar: RegExp = /[1234567890!@#$%^&*()=<>|\\/?:,;{}[+\]]/;
     const specialCharForNumber: RegExp = /[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM~!@#$%^&*()_+\\`\-\=\[\]\;\'\,\.\/\*\-\+\|\>\<]/;
 
     const [nameAttribut, setNameAttribut] = useState<Attribut>({
@@ -59,7 +59,7 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
         let errorNumber = document.querySelector('.error-number');
         let errorCardNumberInput = document.querySelector('#card-number');
         let tmp: string = e.currentTarget.value.slice(0, 4) + ' ' + e.currentTarget.value.slice(4, 8) + ' ' + e.currentTarget.value.slice(8, 12) + ' ' + e.currentTarget.value.slice(12);
-        (e.currentTarget.value == '') ? setCard({ ...card, cardNumber: "1234 5678 9123 4567" }) : setCard({ ...card, cardNumber: tmp });
+        (e.currentTarget.value == '') ? setCard({ ...card, cardNumber: "0000 0000 0000 0000" }) : setCard({ ...card, cardNumber: tmp });
         let error = specialCharForNumber.test(e.currentTarget.value);
         if (error) {
             errorNumber?.classList.add('error-number-active');
@@ -168,7 +168,7 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
 
             <div className="name">
                 <label htmlFor="card-name">CARDHOLDER NAME</label>
-                <input type="text" name="card-name" id='card-name' placeholder="e.g: John Lavine" required onChange={handleName} />
+                <input type="text" name="card-name" id='card-name' placeholder="e.g: Your Name" required onChange={handleName} />
                 <p className='error-name'>Must be a valide name</p>
             </div>
             <div className="number">
