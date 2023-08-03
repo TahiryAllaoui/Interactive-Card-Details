@@ -32,3 +32,16 @@ body {
 * {
   font-family: 'Space Grotesk';
 }
+
+@media (max-width: 416px) {
+  #root {
+    width: 100svw;
+    height: 100svh;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+}
