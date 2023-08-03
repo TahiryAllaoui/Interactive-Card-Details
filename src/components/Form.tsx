@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from '../models/card';
 import '../style/Form.scss'
 import Attribut from '../models/attribut'
+import Complete from '../assets/images/icon-complete.svg'
 
 
 const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) => {
@@ -9,6 +10,9 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
     useEffect(() => {
         setButtonValidity(true);
     }, [])
+
+    //For showing the Congrats pannel
+    const [congrats, setCongrats] = useState(false);
 
     //Setting up special char
     const specialChar: RegExp = /[1234567890!@#$%^&*()=<>|\\/?:,;{}[+\]]/;
@@ -132,12 +136,17 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
             errorCvc!.classList.remove('cvc-active');
             errorCvcInput!.classList.remove('input-error');
         }
-        if (e.currentTarget.value == '')
+        if (e.currentTarget.value == '' || e.currentTarget.value.length < 3)
             error = true;
         setCvcAttribut({
             value: e.currentTarget.value,
             error: error
         });
+    };
+
+    //Button click for congrats
+    const handleClick = () => {
+        setCongrats(true);
     };
 
 
@@ -163,38 +172,47 @@ const Form = ({ card, setCard }: { card: Card, setCard: (card: Card) => void }) 
         setButtonValidity(status)
     }, [nameAttribut, numberAttribut, monthAttribut, yearAttribut, cvcAttribut])
 
-    return <form>
-        <div className="container">
+    return !congrats ?
+        <form>
+            <div className="container">
 
-            <div className="name">
-                <label htmlFor="card-name">CARDHOLDER NAME</label>
-                <input type="text" name="card-name" id='card-name' placeholder="e.g: Your Name" required onChange={handleName} />
-                <p className='error-name'>Must be a valide name</p>
-            </div>
-            <div className="number">
-                <label htmlFor="card-number">CARD NUMBER</label>
-                <input type="text" name="card-number" id='card-number' placeholder="16 Digits" required minLength={16} maxLength={16} onChange={handleNumber} />
-                <p className="error-number">Wrong format, numbers only</p>
-            </div>
-            <div className="exp-date">
-                <div className="date">
-                    <label htmlFor="date">EXP. DATE (MM/YY)</label>
-                    <div className="date-input">
-                        <input type="text" name="date" id="month" placeholder='MM' maxLength={2} onChange={handleMonth} required />
-                        <input type="text" name="date" id="year" placeholder='YY' maxLength={2} onChange={handleYear} required />
+                <div className="name">
+                    <label htmlFor="card-name">CARDHOLDER NAME</label>
+                    <input type="text" name="card-name" id='card-name' placeholder="e.g: Your Name" required onChange={handleName} />
+                    <p className='error-name'>Must be a valide name</p>
+                </div>
+                <div className="number">
+                    <label htmlFor="card-number">CARD NUMBER</label>
+                    <input type="text" name="card-number" id='card-number' placeholder="16 Digits" required minLength={16} maxLength={16} onChange={handleNumber} />
+                    <p className="error-number">Wrong format, numbers only</p>
+                </div>
+                <div className="exp-date">
+                    <div className="date">
+                        <label htmlFor="date">EXP. DATE (MM/YY)</label>
+                        <div className="date-input">
+                            <input type="text" name="date" id="month" placeholder='MM' maxLength={2} onChange={handleMonth} required />
+                            <input type="text" name="date" id="year" placeholder='YY' maxLength={2} onChange={handleYear} required />
+                        </div>
+                        <p className="date-error">Number only. Can't be blank</p>
                     </div>
-                    <p className="date-error">Number only. Can't be blank</p>
+                    <div className="cvc">
+                        <label htmlFor="cvc">CVC</label>
+                        <input type="text" name="cvc" id="cvc" placeholder='e.g: 123' maxLength={3} minLength={3} required onChange={handleCvc} />
+                        <p className="cvc-error">Number only. Can't be blank</p>
+                    </div>
                 </div>
-                <div className="cvc">
-                    <label htmlFor="cvc">CVC</label>
-                    <input type="text" name="cvc" id="cvc" placeholder='e.g: 123' maxLength={3} minLength={3} required onChange={handleCvc} />
-                    <p className="cvc-error">Number only. Can't be blank</p>
-                </div>
+                <button type='submit' className='butt' disabled={buttonValidity} onClick={handleClick}>Confirm</button>
             </div>
-            <button type='submit' className='butt' disabled={buttonValidity}>Confirm</button>
-        </div>
 
-    </form>
+        </form> :
+        <div className='congrats'>
+            <div className="congrats-item">
+                <img src={Complete} alt="" />
+                <h2>THANK YOU</h2>
+                <p>We've added your card details</p>
+                <button>Continue</button>
+            </div>
+        </div>
 };
 
 export default Form;
